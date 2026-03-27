@@ -100,7 +100,6 @@ nav .nav-links a.btn-nav:hover { background: var(--gold-light); }
 /* Video slot — hidden until src is set */
 .hero-video {
   position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
-  display: none; /* flip to block when video file is added */
 }
 .hero-overlay {
   position: absolute; inset: 0;
@@ -447,8 +446,9 @@ footer a { color: var(--gold); text-decoration: none; }
 <!-- ========== HERO ========== -->
 <section class="hero" id="top">
   <div class="hero-bg">
-    <!-- Replace: add src to activate video background -->
-    <video class="hero-video" autoplay muted loop playsinline></video>
+    <video class="hero-video" autoplay muted loop playsinline poster="hero-poster.jpg">
+      <source src="hero-bg.mp4" type="video/mp4">
+    </video>
     <div class="hero-overlay"></div>
   </div>
   <div class="hero-content">
