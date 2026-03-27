@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Custom MBA &amp; MS Programs for Banking | NYIT School of Management</title>
+<meta name="description" content="Custom MBA and MS in FinTech & Data Analytics designed for Bank of America professionals. NYIT School of Management.">
+<style>
+/* ============================================================
+   NYIT Agentic Banking — Degrees Page
+   Shared design language with index.html
+   ============================================================ */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+:root {
+  --bg-dark:    #080E1A;
+  --bg-section: #0F1B2D;
+  --bg-light:   #F8FAFC;
+  --bg-white:   #FFFFFF;
+  --gold:       #C9A84C;
+  --gold-light: #E8D5A3;
+  --gold-dim:   #8B7430;
+  --blue:       #2563EB;
+  --blue-light: #3B82F6;
+  --navy:       #1A365D;
+  --text-light: #F1F5F9;
+  --text-muted: #94A3B8;
+  --text-dark:  #1E293B;
+  --text-body:  #334155;
+  --border:     #E2E8F0;
+  --max-w:      1140px;
+  --font:       -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: var(--font); color: var(--text-dark); background: var(--bg-white); line-height: 1.65; -webkit-font-smoothing: antialiased; }
+
+.container { max-width: var(--max-w); margin: 0 auto; padding: 0 28px; }
+
+/* ---------- NAV ---------- */
+nav {
+  position: fixed; top: 0; left: 0; width: 100%; z-index: 100;
+  padding: 18px 32px;
+  display: flex; justify-content: space-between; align-items: center;
+  transition: background .35s, box-shadow .35s, padding .35s;
+}
+nav.scrolled {
+  background: rgba(8,14,26,.97);
+  box-shadow: 0 2px 24px rgba(0,0,0,.3);
+  padding: 12px 32px;
+}
+nav .logo {
+  font-size: 1.05rem; font-weight: 700; color: var(--text-light); letter-spacing: .03em;
+  text-decoration: none;
+}
+nav .logo span { color: var(--gold); }
+nav .nav-links { display: flex; gap: 32px; align-items: center; }
+nav .nav-links a {
+  color: var(--text-muted); text-decoration: none; font-size: .9rem; font-weight: 500;
+  transition: color .2s; letter-spacing: .02em;
+}
+nav .nav-links a:hover, nav .nav-links a.active { color: var(--gold); }
+nav .nav-links a.btn-nav {
+  background: var(--gold); color: var(--bg-dark); padding: 8px 20px; border-radius: 6px;
+  font-weight: 600; transition: background .2s;
+}
+nav .nav-links a.btn-nav:hover { background: var(--gold-light); }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 101; }
+.hamburger span { display: block; width: 24px; height: 2px; background: var(--text-light); transition: .3s; }
+
+/* ---------- HERO ---------- */
+.hero {
+  position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center;
+  overflow: hidden; background: var(--bg-dark);
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 70% 50% at 30% 50%, rgba(37,99,235,.07) 0%, transparent 60%),
+    radial-gradient(ellipse 80% 60% at 80% 30%, rgba(201,168,76,.06) 0%, transparent 50%),
+    linear-gradient(165deg, #080E1A 0%, #0F1B2D 40%, #121E33 100%);
+}
+.hero-bg::after {
+  content: ''; position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(201,168,76,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,168,76,.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  animation: gridShift 20s linear infinite;
+}
+@keyframes gridShift { 0%{transform:translate(0,0)} 100%{transform:translate(60px,60px)} }
+
+.hero-video {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: none;
+}
+.hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(8,14,26,.55) 0%, rgba(8,14,26,.85) 100%);
+}
+.hero-content {
+  position: relative; z-index: 2; text-align: center; max-width: 860px; padding: 0 24px;
+}
+.hero-badge {
+  display: inline-block;
+  font-size: .8rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--gold); border: 1px solid rgba(201,168,76,.35); padding: 8px 24px; border-radius: 40px;
+  margin-bottom: 32px;
+  opacity: 0; transform: translateY(20px);
+  animation: fadeUp .8s .3s ease forwards;
+}
+.hero h1 {
+  font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+  font-weight: 800; line-height: 1.1; color: var(--text-light);
+  letter-spacing: -.02em; margin-bottom: 24px;
+  opacity: 0; transform: translateY(30px);
+  animation: fadeUp .9s .5s ease forwards;
+}
+.hero h1 .gold { color: var(--gold); }
+.hero-sub {
+  font-size: clamp(1.05rem, 2vw, 1.25rem); color: var(--text-muted); line-height: 1.7;
+  max-width: 640px; margin: 0 auto 40px;
+  opacity: 0; transform: translateY(20px);
+  animation: fadeUp .8s .75s ease forwards;
+}
+.hero-ctas {
+  display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+  opacity: 0; transform: translateY(20px);
+  animation: fadeUp .8s 1s ease forwards;
+}
+.btn {
+  display: inline-block; padding: 14px 32px; border-radius: 8px;
+  font-size: 1rem; font-weight: 600; text-decoration: none; transition: .25s; cursor: pointer;
+}
+.btn-primary { background: var(--gold); color: var(--bg-dark); }
+.btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(201,168,76,.25); }
+.btn-outline { border: 1.5px solid rgba(241,245,249,.3); color: var(--text-light); background: transparent; }
+.btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+.scroll-ind {
+  position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%); z-index: 2;
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  opacity: 0; animation: fadeUp .6s 1.4s ease forwards;
+}
+.scroll-ind span { font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: var(--text-muted); }
+.scroll-line { width: 1px; height: 40px; background: linear-gradient(180deg, var(--gold), transparent); animation: pulse 2s ease infinite; }
+@keyframes pulse { 0%,100%{opacity:.4} 50%{opacity:1} }
+@keyframes fadeUp { to { opacity:1; transform:translateY(0); } }
+
+/* ---------- SECTION UTILITIES ---------- */
+section { padding: 100px 0; }
+.section-dark { background: var(--bg-section); color: var(--text-light); }
+.section-light { background: var(--bg-light); }
+
+.section-label {
+  font-size: .78rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 16px;
+}
+.section-title {
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 800; line-height: 1.15;
+  margin-bottom: 20px; letter-spacing: -.015em;
+}
+.section-dark .section-title { color: var(--text-light); }
+.section-sub {
+  font-size: 1.1rem; color: var(--text-muted); max-width: 700px; line-height: 1.75;
+}
+
+.reveal {
+  opacity: 0; transform: translateY(32px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ---------- WHY DEGREE SECTION ---------- */
+.why-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 48px;
+}
+.why-card {
+  padding: 32px; border-radius: 14px;
+  background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.07);
+}
+.why-card h4 {
+  font-size: 1.05rem; font-weight: 700; color: var(--text-light); margin-bottom: 10px;
+}
+.why-card p {
+  font-size: .92rem; color: var(--text-muted); line-height: 1.7;
+}
+.why-icon {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 44px; height: 44px; border-radius: 10px; margin-bottom: 16px;
+  background: rgba(201,168,76,.1); color: var(--gold); font-size: 1.3rem; font-weight: 700;
+}
+
+/* ---------- PROGRAM SECTION ---------- */
+.program-section { padding: 100px 0; }
+.program-header {
+  margin-bottom: 16px;
+}
+.program-meta {
+  display: flex; gap: 24px; margin-top: 16px; margin-bottom: 48px; flex-wrap: wrap;
+}
+.program-meta-item {
+  font-size: .88rem; color: var(--text-muted);
+}
+.program-meta-item strong { font-weight: 600; }
+.section-light .program-meta-item strong { color: var(--text-dark); }
+.section-dark .program-meta-item strong { color: var(--text-light); }
+
+.level-badge {
+  display: inline-block; padding: 5px 14px; border-radius: 20px; font-size: .78rem;
+  font-weight: 600; letter-spacing: .03em;
+  background: rgba(201,168,76,.12); color: var(--gold); border: 1px solid rgba(201,168,76,.25);
+}
+
+/* Outcome table */
+.outcome-table {
+  width: 100%; border-collapse: collapse; margin-top: 8px;
+}
+.outcome-table th {
+  text-align: left; padding: 14px 20px; font-size: .78rem; font-weight: 700;
+  letter-spacing: .08em; text-transform: uppercase;
+  border-bottom: 2px solid var(--gold);
+}
+.section-light .outcome-table th { color: var(--text-body); border-color: var(--gold); }
+.section-dark .outcome-table th { color: var(--gold-light); border-color: rgba(201,168,76,.3); }
+
+.outcome-table td {
+  padding: 18px 20px; font-size: .94rem; line-height: 1.65;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+.section-dark .outcome-table td { border-color: rgba(255,255,255,.06); }
+
+.outcome-table td:first-child {
+  font-weight: 600; white-space: nowrap; width: 200px;
+  font-size: .88rem;
+}
+.section-light .outcome-table td:first-child { color: var(--navy); }
+.section-dark .outcome-table td:first-child { color: var(--gold-light); }
+.section-light .outcome-table td { color: var(--text-body); }
+.section-dark .outcome-table td { color: var(--text-muted); }
+
+.outcome-table tr:last-child td { border-bottom: none; }
+.outcome-table tr.capstone-row td {
+  background: rgba(201,168,76,.06); font-weight: 500;
+}
+.section-dark .outcome-table tr.capstone-row td {
+  background: rgba(201,168,76,.08);
+}
+
+/* Concentration cards */
+.conc-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 40px;
+}
+.conc-card {
+  padding: 28px; border-radius: 12px; border: 1px solid var(--border);
+}
+.section-dark .conc-card { border-color: rgba(255,255,255,.08); }
+.conc-card h4 { font-size: 1.05rem; font-weight: 700; margin-bottom: 6px; }
+.section-light .conc-card h4 { color: var(--text-dark); }
+.section-dark .conc-card h4 { color: var(--text-light); }
+.conc-for { font-size: .82rem; color: var(--gold); margin-bottom: 12px; font-weight: 600; }
+.conc-card ul {
+  list-style: none; padding: 0;
+}
+.conc-card li {
+  font-size: .88rem; color: var(--text-muted); padding: 4px 0 4px 18px;
+  position: relative; line-height: 1.6;
+}
+.conc-card li::before {
+  content: ''; position: absolute; left: 0; top: 12px;
+  width: 6px; height: 6px; border-radius: 50%; background: var(--gold);
+}
+
+/* Outcome callout */
+.outcome-callout {
+  margin-top: 48px; padding: 32px 40px; border-radius: 14px; position: relative; overflow: hidden;
+  background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-section) 100%);
+  border: 1px solid rgba(201,168,76,.2);
+}
+.section-dark .outcome-callout {
+  background: linear-gradient(135deg, rgba(201,168,76,.08) 0%, rgba(201,168,76,.02) 100%);
+}
+.outcome-callout::before {
+  content: '"'; position: absolute; top: -10px; left: 20px;
+  font-size: 8rem; color: rgba(201,168,76,.1); font-family: Georgia, serif; line-height: 1;
+}
+.outcome-callout p {
+  position: relative; z-index: 1;
+  font-size: 1.15rem; color: var(--text-light); line-height: 1.8; font-style: italic;
+}
+.outcome-callout strong { color: var(--gold); font-style: normal; }
+
+/* ---------- APPLICATION PATHWAY ---------- */
+.app-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; margin-top: 48px;
+}
+.app-card {
+  padding: 32px; border-radius: 14px; border: 1px solid var(--border);
+}
+.app-card h4 { font-size: 1.05rem; font-weight: 700; color: var(--text-dark); margin-bottom: 12px; }
+.app-card p { font-size: .92rem; color: var(--text-body); line-height: 1.7; }
+.app-card .app-highlight {
+  margin-top: 12px; padding: 10px 16px; border-radius: 8px;
+  background: rgba(37,99,235,.06); color: var(--blue); font-size: .88rem; font-weight: 600;
+}
+
+/* ---------- ARCHITECTURE VISUAL ---------- */
+.arch-flow {
+  margin-top: 56px;
+  display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; align-items: center; gap: 0;
+}
+.arch-node {
+  text-align: center; padding: 28px 16px; border-radius: 14px;
+  border: 1px solid rgba(255,255,255,.08);
+}
+.arch-node.highlight { border-color: var(--gold); background: rgba(201,168,76,.06); }
+.arch-node h4 { font-size: .95rem; color: var(--text-light); margin-bottom: 4px; }
+.arch-node p { font-size: .82rem; color: var(--text-muted); line-height: 1.5; }
+.arch-arrow {
+  text-align: center; color: var(--gold); font-size: 1.4rem; padding: 0 8px;
+}
+
+.arch-split {
+  margin-top: 24px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+}
+.arch-degree {
+  text-align: center; padding: 32px 20px; border-radius: 14px;
+  border: 1px solid rgba(201,168,76,.2); background: rgba(201,168,76,.04);
+}
+.arch-degree h4 { font-size: 1.1rem; color: var(--gold); margin-bottom: 4px; }
+.arch-degree .arch-for { font-size: .8rem; color: var(--text-muted); margin-bottom: 10px; }
+.arch-degree p { font-size: .88rem; color: var(--text-muted); line-height: 1.6; }
+.arch-degree .arch-levels { font-size: .78rem; color: var(--gold-dim); margin-top: 10px; font-weight: 600; }
+
+/* ---------- CAPSTONE CALLOUT ---------- */
+.capstone-section {
+  padding: 80px 0;
+  border-top: 1px solid rgba(255,255,255,.05);
+  border-bottom: 1px solid rgba(255,255,255,.05);
+}
+.capstone-inner {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;
+}
+.capstone-inner h3 {
+  font-size: 1.6rem; font-weight: 800; color: var(--text-light); line-height: 1.25; margin-bottom: 16px;
+}
+.capstone-inner p {
+  font-size: 1rem; color: var(--text-muted); line-height: 1.8;
+}
+.capstone-examples {
+  list-style: none; padding: 0;
+}
+.capstone-examples li {
+  padding: 12px 0 12px 24px; font-size: .94rem; color: var(--text-muted); line-height: 1.6;
+  border-bottom: 1px solid rgba(255,255,255,.05); position: relative;
+}
+.capstone-examples li::before {
+  content: ''; position: absolute; left: 0; top: 18px;
+  width: 8px; height: 8px; border-radius: 2px; background: var(--gold); transform: rotate(45deg);
+}
+.capstone-examples li:last-child { border-bottom: none; }
+
+/* ---------- CTA & FOOTER ---------- */
+.cta-section { padding: 100px 0; text-align: center; }
+.cta-section .section-title { color: var(--text-light); margin-bottom: 16px; }
+.cta-section .section-sub { margin: 0 auto 40px; }
+.cta-contact { margin-top: 32px; font-size: .92rem; color: var(--text-muted); }
+.cta-contact a { color: var(--gold); text-decoration: none; }
+.cta-contact a:hover { text-decoration: underline; }
+
+footer {
+  padding: 32px 0; border-top: 1px solid rgba(255,255,255,.06); background: var(--bg-dark);
+}
+footer .container { display: flex; justify-content: space-between; align-items: center; }
+footer p { font-size: .8rem; color: var(--text-muted); }
+footer a { color: var(--gold); text-decoration: none; }
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 900px) {
+  .why-grid { grid-template-columns: 1fr; }
+  .conc-grid { grid-template-columns: 1fr; }
+  .app-grid { grid-template-columns: 1fr; }
+  .capstone-inner { grid-template-columns: 1fr; }
+  .arch-flow { grid-template-columns: 1fr; gap: 12px; }
+  .arch-arrow { transform: rotate(90deg); }
+  .arch-split { grid-template-columns: 1fr; }
+  .outcome-table td:first-child { white-space: normal; width: auto; }
+}
+@media (max-width: 640px) {
+  nav .nav-links { display: none; }
+  nav .nav-links.open {
+    display: flex; flex-direction: column; position: fixed; top: 0; right: 0;
+    width: 280px; height: 100vh; background: var(--bg-dark); padding: 80px 32px 32px;
+    gap: 24px; box-shadow: -4px 0 24px rgba(0,0,0,.5);
+  }
+  .hamburger { display: flex; }
+  section { padding: 64px 0; }
+  .hero h1 { font-size: 2rem; }
+  .outcome-table { font-size: .85rem; }
+  .outcome-table td { padding: 12px 12px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ========== NAV ========== -->
+<nav id="nav">
+  <a href="index.html" class="logo">NYIT <span>School of Management</span></a>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Certificates</a>
+    <a href="#mba" class="active">MBA</a>
+    <a href="#ms" class="active">MS-FTFDA</a>
+    <a href="index.html" class="btn-nav">&larr; View Certificates</a>
+  </div>
+  <div class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ========== HERO ========== -->
+<section class="hero" id="top">
+  <div class="hero-bg">
+    <video class="hero-video" autoplay muted loop playsinline></video>
+    <div class="hero-overlay"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-badge">NYIT School of Management &times; Bank of America</div>
+    <h1>From Certificate to<br>Career <span class="gold">Transformation</span></h1>
+    <p class="hero-sub">Custom MBA and MS degree pathways for Bank of America professionals &mdash; same world-class curriculum, streamlined application, concrete results.</p>
+    <div class="hero-ctas">
+      <a href="#mba" class="btn btn-primary">Explore the MBA</a>
+      <a href="#ms" class="btn btn-outline">Explore the MS &rarr;</a>
+    </div>
+  </div>
+  <div class="scroll-ind">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ========== WHY A DEGREE ========== -->
+<section class="section-dark" id="why">
+  <div class="container reveal">
+    <p class="section-label">Beyond Certificates</p>
+    <h2 class="section-title">Certificates Build Skills.<br>Degrees Build Leaders and Builders.</h2>
+    <p class="section-sub">Internal training and certificates cover AI productivity. A degree gives your people something no workshop can: the strategic judgment to redesign operations, the analytical depth to build systems, and an external credential that advances careers.</p>
+
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">L</div>
+        <h4>Strategic Judgment</h4>
+        <p>MBA graduates don&rsquo;t just use AI tools. They decide which workflows to redesign, build the business case, lead the team through adoption, and measure the results.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">B</div>
+        <h4>Technical Depth</h4>
+        <p>MS graduates don&rsquo;t consume vendor tools. They build credit models, compliance systems, and client intelligence platforms that give the bank a proprietary edge.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">C</div>
+        <h4>Career Credential</h4>
+        <p>An NYIT MBA or MS is a career-advancing external credential &mdash; recognized, transferable, and visible on every profile and promotion discussion.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CUSTOM MBA ========== -->
+<section class="program-section section-light" id="mba">
+  <div class="container">
+    <div class="program-header reveal">
+      <p class="section-label">Custom MBA</p>
+      <h2 class="section-title" style="color:var(--text-dark);">MBA in AI-Driven Financial Leadership</h2>
+      <p class="section-sub" style="color:var(--text-body);">Same accredited MBA curriculum. Custom application for Bank of America professionals. Every course teaches financial professionals to lead with data and AI &mdash; not just manage with intuition.</p>
+      <div class="program-meta">
+        <span class="program-meta-item"><strong>30&ndash;45 credits</strong></span>
+        <span class="program-meta-item"><strong>24 months</strong> part-time</span>
+        <span class="program-meta-item"><strong>8 core</strong> + concentration</span>
+        <span class="level-badge">Levels 3 &rarr; 5</span>
+      </div>
+    </div>
+
+    <h3 style="font-size:1.15rem; font-weight:700; color:var(--text-dark); margin-bottom:4px;" class="reveal">What Your Manager Can Do After Each Course</h3>
+
+    <div class="reveal" style="overflow-x:auto;">
+    <table class="outcome-table">
+      <thead>
+        <tr><th style="width:200px;">Course</th><th>After This Course, Your Manager Can&hellip;</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>ACCT 601<br>Managerial Accounting</td>
+          <td>Break down the P&amp;L of any branch or product line, isolate what drives costs versus revenue, and present it to market leadership with AI-generated visualizations &mdash; not just raw spreadsheets.</td>
+        </tr>
+        <tr>
+          <td>ECON 601<br>Managerial Economics</td>
+          <td>Model how a rate change, a new competitor, or a demographic shift will affect their local market &mdash; and recommend a strategic response backed by data, not instinct.</td>
+        </tr>
+        <tr>
+          <td>FINC 601<br>Financial Management</td>
+          <td>Evaluate whether a branch investment (new hire, renovation, digital kiosk) is worth the capital &mdash; running AI-assisted scenario analysis and sensitivity testing on real numbers.</td>
+        </tr>
+        <tr>
+          <td>MGMT 605<br>Organizational Behavior</td>
+          <td>Lead their team through AI adoption resistance. Diagnose why people resist, design incentives that work, and coach a multigenerational workforce through technology transitions.</td>
+        </tr>
+        <tr>
+          <td>MRKT 620<br>Strategic Marketing</td>
+          <td>Design a client acquisition strategy using AI-driven segmentation &mdash; not &ldquo;call more people&rdquo; but &ldquo;call these people, for these reasons, with this message.&rdquo;</td>
+        </tr>
+        <tr>
+          <td>QANT 630<br>Operations &amp; SCM</td>
+          <td>Map their branch&rsquo;s client service process, find the bottleneck, and redesign it &mdash; reducing wait times, improving NPS, and freeing advisor time for high-value conversations.</td>
+        </tr>
+        <tr>
+          <td>BUSA 630<br>Predictive Analytics</td>
+          <td>Build a model that predicts which clients will attrite, which prospects will convert, and which products each client segment is most likely to need next &mdash; then act on it.</td>
+        </tr>
+        <tr class="capstone-row">
+          <td>MGMT 650<br>Strategic Capstone</td>
+          <td><strong>Present a complete AI transformation proposal for their own team or market to BofA leadership</strong> &mdash; not a hypothetical case study, but a real plan they can implement the following quarter.</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <!-- Concentrations -->
+    <h3 style="font-size:1.1rem; font-weight:700; color:var(--text-dark); margin-top:48px;" class="reveal">Recommended Concentrations for Bank of America</h3>
+
+    <div class="conc-grid reveal">
+      <div class="conc-card">
+        <h4>Finance &amp; CFA Track</h4>
+        <div class="conc-for">Best for: Merrill advisors, wealth management talent</div>
+        <ul>
+          <li>Financial Statement Analysis (ACCT 713)</li>
+          <li>Equity Valuation &amp; Analysis (FINC 734)</li>
+          <li>Fixed Income Securities (FINC 736)</li>
+          <li>Portfolio Management (FINC 765)</li>
+        </ul>
+      </div>
+      <div class="conc-card">
+        <h4>Business Analytics Track</h4>
+        <div class="conc-for">Best for: Market leaders, operations managers, innovation talent</div>
+        <ul>
+          <li>Data Visualization &amp; Interaction (BUSA 701)</li>
+          <li>Data Mining &amp; Pattern Recognition (BUSA 710)</li>
+          <li>Deep Learning &amp; NLP for Business (BUSA 730)</li>
+          <li>Database Management &amp; ERP (BUSA 740)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="outcome-callout reveal">
+      <p><strong>After this MBA,</strong> your high-potential managers don&rsquo;t just manage a branch &mdash; they redesign how it operates, using data and AI to drive every decision. Their capstone is a real transformation plan for their own market, ready to implement.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CUSTOM MS-FTFDA ========== -->
+<section class="program-section section-dark" id="ms">
+  <div class="container">
+    <div class="program-header reveal">
+      <p class="section-label">Custom MS</p>
+      <h2 class="section-title">MS in FinTech &amp; Data Analytics</h2>
+      <p class="section-sub">For the people who will build your next generation of internal capabilities. AI models, compliance systems, client intelligence platforms &mdash; built in-house, not purchased from vendors.</p>
+      <div class="program-meta">
+        <span class="program-meta-item"><strong>30 credits</strong> &middot; 10 courses</span>
+        <span class="program-meta-item"><strong>20&ndash;24 months</strong> part-time</span>
+        <span class="program-meta-item"><strong>STEM designated</strong></span>
+        <span class="level-badge">Levels 4 &rarr; 6</span>
+      </div>
+    </div>
+
+    <h3 style="font-size:1.15rem; font-weight:700; color:var(--text-light); margin-bottom:4px;" class="reveal">What Your Builder Can Do After Each Course</h3>
+
+    <div class="reveal" style="overflow-x:auto;">
+    <table class="outcome-table">
+      <thead>
+        <tr><th style="width:200px;">Course</th><th>After This Course, Your Analyst / Builder Can&hellip;</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>BUSA 601<br>Data Storytelling</td>
+          <td>Build interactive Tableau or Power BI dashboards that any branch manager can use to see client trends, performance alerts, and portfolio metrics &mdash; replacing emailed spreadsheets with live intelligence.</td>
+        </tr>
+        <tr>
+          <td>BUSA 602<br>Programming</td>
+          <td>Write Python and SQL scripts that automate client data extraction, clean messy datasets, and generate formatted reports &mdash; tasks that currently take a team member a full day each week.</td>
+        </tr>
+        <tr>
+          <td>QANT 605<br>Statistical Thinking</td>
+          <td>Design a rigorous A/B test for a branch initiative (e.g., &ldquo;does this onboarding script improve 90-day retention?&rdquo;) and tell you whether the result is real or statistical noise.</td>
+        </tr>
+        <tr>
+          <td>BUSA 660<br>AI &amp; Machine Learning</td>
+          <td>Build and validate a machine learning model that predicts client churn, flags high-risk accounts, or scores leads &mdash; not just use someone else&rsquo;s model, but build one from your own data.</td>
+        </tr>
+        <tr>
+          <td>FINC 601<br>Financial Management</td>
+          <td>Apply AI-enhanced financial analysis to evaluate lending decisions, capital projects, and portfolio construction &mdash; the financial judgment layer on top of the technical skills.</td>
+        </tr>
+        <tr>
+          <td>FINC 671<br>Blockchain &amp; Digital Assets</td>
+          <td>Evaluate whether a DeFi protocol, tokenized asset, or smart contract has a genuine use case for BofA clients &mdash; or whether it&rsquo;s hype. Risk-first assessment, not speculation.</td>
+        </tr>
+        <tr>
+          <td>FINC 672<br>Algorithmic Trading</td>
+          <td>Design, backtest, and evaluate quantitative investment strategies using real market data &mdash; directly applicable to Merrill&rsquo;s advisory and research functions.</td>
+        </tr>
+        <tr>
+          <td>FINC 771<br>AI in Financial Services</td>
+          <td>Build NLP models that analyze earnings calls, SEC filings, and research reports for investment signals. Build credit scoring models. Build AI-driven risk assessment tools. This is where &ldquo;I use AI&rdquo; becomes &ldquo;I build AI for finance.&rdquo;</td>
+        </tr>
+        <tr>
+          <td>FINC 772<br>RegTech &amp; Cybersecurity</td>
+          <td>Design a compliance monitoring workflow &mdash; automated flagging of suspicious patterns, regulatory reporting, audit trail generation &mdash; that operates within BofA&rsquo;s governance framework.</td>
+        </tr>
+        <tr class="capstone-row">
+          <td>FINC 773<br>FinTech Capstone</td>
+          <td><strong>Build a working FinTech prototype that solves a real Bank of America problem</strong> &mdash; client intelligence tool, automated compliance monitor, advisor preparation engine. BofA can serve as the industry sponsor.</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="outcome-callout reveal">
+      <p><strong>After this MS,</strong> your innovation and analytics talent can build the AI-driven financial tools your bank needs &mdash; credit models, compliance monitors, client intelligence platforms, automated workflows &mdash; instead of waiting for vendors to sell you yesterday&rsquo;s solution at tomorrow&rsquo;s price.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CAPSTONE: BofA as Sponsor ========== -->
+<section class="capstone-section section-dark">
+  <div class="container">
+    <div class="capstone-inner reveal">
+      <div>
+        <p class="section-label">Industry Partnership</p>
+        <h3>Your Problems Become Our Capstone Projects</h3>
+        <p>The MS capstone (FINC 773) requires an industry sponsor. Bank of America can define real business problems; our students build working prototypes over a full semester. You get functional solutions developed under faculty supervision. Students get career-defining project experience.</p>
+      </div>
+      <div>
+        <p style="font-size:.88rem; font-weight:600; color:var(--gold); margin-bottom:12px;">EXAMPLE CAPSTONE PROJECTS</p>
+        <ul class="capstone-examples">
+          <li>AI-powered advisor meeting prep system for Long Island wealth clients</li>
+          <li>Automated compliance screening for small business lending</li>
+          <li>Client intelligence dashboard integrating CRM, market, and portfolio data</li>
+          <li>Predictive attrition model for the 518K digitally active client base</li>
+          <li>RegTech workflow for KYC/AML monitoring and reporting</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CUSTOM APPLICATION PATHWAY ========== -->
+<section class="section-light" id="application">
+  <div class="container reveal">
+    <p class="section-label">Custom Application</p>
+    <h2 class="section-title" style="color:var(--text-dark);">Streamlined Admission for BofA Professionals</h2>
+    <p class="section-sub" style="color:var(--text-body);">Same world-class programs. Simplified entry for qualified Bank of America employees.</p>
+
+    <div class="app-grid">
+      <div class="app-card">
+        <h4>GMAT / GRE Waiver</h4>
+        <p>Bank of America employees with 3+ years of professional experience qualify for a standardized test waiver. Your work is your credential.</p>
+        <div class="app-highlight">No standardized test required</div>
+      </div>
+      <div class="app-card">
+        <h4>Dedicated BofA Cohort</h4>
+        <p>Study alongside colleagues who share your regulatory environment, your client challenges, and your institutional context. Cases and projects draw directly from banking workflows.</p>
+        <div class="app-highlight">Cohort starts with 15+ enrolled</div>
+      </div>
+      <div class="app-card">
+        <h4>Certificate Scholarship</h4>
+        <p>Every NYIT certificate earns a $500 scholarship toward MBA or MS tuition. Complete both certificates and start your degree with $1,000 already applied.</p>
+        <div class="app-highlight">$500 per certificate &rarr; degree</div>
+      </div>
+      <div class="app-card">
+        <h4>Tuition Benefit Alignment</h4>
+        <p>Programs structured to work with employer tuition assistance programs. Certificates fit within the IRS &sect;127 $5,250 annual tax-free education benefit.</p>
+        <div class="app-highlight">Designed for employer education benefits</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FULL ARCHITECTURE ========== -->
+<section class="section-dark" id="architecture">
+  <div class="container reveal">
+    <p class="section-label">The Architecture</p>
+    <h2 class="section-title">One System. Three Entry Points. Every Career Stage.</h2>
+    <p class="section-sub">Certificates are the entry. Degrees are the transformation. Every step builds on the last.</p>
+
+    <div class="arch-flow" style="margin-top:48px;">
+      <div class="arch-node">
+        <h4>Certificate I</h4>
+        <p>AI Fluency<br>5 wks &middot; $1,499<br><span style="color:var(--gold);">Levels 2&rarr;4</span></p>
+      </div>
+      <div class="arch-arrow">&rarr;</div>
+      <div class="arch-node">
+        <h4>Certificate II</h4>
+        <p>AI Leadership<br>6 wks &middot; $1,499<br><span style="color:var(--gold);">Levels 4&rarr;5</span></p>
+      </div>
+      <div class="arch-arrow">&rarr;</div>
+      <div class="arch-node highlight">
+        <h4>Choose Your Track</h4>
+        <p>$1,000 scholarship applied</p>
+      </div>
+    </div>
+
+    <div class="arch-split">
+      <div class="arch-degree">
+        <h4>Custom MBA</h4>
+        <div class="arch-for">The Leadership Track</div>
+        <p>For managers, market leaders, and senior advisors who will redesign how their teams operate.</p>
+        <div class="arch-levels">Levels 3 &rarr; 5 &middot; 30&ndash;45 credits &middot; 24 months</div>
+      </div>
+      <div class="arch-degree">
+        <h4>MS in FinTech &amp; Data Analytics</h4>
+        <div class="arch-for">The Builder Track</div>
+        <p>For analysts, innovation talent, and technical professionals who will build AI-driven financial systems.</p>
+        <div class="arch-levels">Levels 4 &rarr; 6 &middot; 30 credits &middot; 20&ndash;24 months</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CTA ========== -->
+<section class="cta-section section-dark" style="border-top: 1px solid rgba(255,255,255,.05);">
+  <div class="container reveal">
+    <p class="section-label">Next Steps</p>
+    <h2 class="section-title">Let&rsquo;s Build the Partnership.</h2>
+    <p class="section-sub">We design the cohort around your calendar, your talent priorities, and your market. Certificates can launch within 60&nbsp;days. Degree cohorts begin each fall and spring.</p>
+    <div style="margin-top:36px;">
+      <a href="index.html" class="btn btn-primary" style="margin-right:12px;">&larr; View Certificates</a>
+      <a href="mailto:jkumar@nyit.edu" class="btn btn-outline">Contact Dean Kumar</a>
+    </div>
+    <p class="cta-contact" style="margin-top:24px;">
+      <strong>Jai Kumar, Ph.D.</strong> &middot; Dean, School of Management<br>
+      <a href="mailto:jkumar@nyit.edu">jkumar@nyit.edu</a> &middot; New York Institute of Technology
+    </p>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>&copy; 2026 New York Institute of Technology &middot; School of Management</p>
+    <p><a href="index.html">Certificates</a> &nbsp;&middot;&nbsp; <a href="#mba">MBA</a> &nbsp;&middot;&nbsp; <a href="#ms">MS-FTFDA</a></p>
+  </div>
+</footer>
+
+<!-- ========== JS ========== -->
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    document.getElementById('navLinks').classList.remove('open');
+  });
+});
+</script>
+</body>
+</html>
